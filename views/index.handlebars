@@ -1,0 +1,39 @@
+<div class="container text-center mb-3">
+  <div class="row">
+    <div class="col m-3">
+      <h2>Eat-Da-Burger
+        <img style="width: 120px" src="/assets/images/burger.gif" alt="">
+      </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <form>
+        <div class="form-group">
+          <input type="text" class="form-control mb-1 add-input" placeholder="Name-Da-Burger">
+          <button class="btn btn-dark btn-block add-button">Add-Da-Burger</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-6 p-3">
+      <h4 class="pb-1">Eat</h4>
+      {{#each burgerData}} {{#unless this.devoured}}
+      <div class="bg-light border border-dark rounded m-2 text-left d-flex justify-content-between align-items-center" id={{this.id}}>
+        <span class="mx-2">{{this.burger_name}}</span>
+        <button class="btn btn-sm btn-danger m-1 eat-button" style="width: 110px">EAT!</button>
+      </div>
+      {{/unless}} {{/each}}
+    </div>
+    <div class="col-12 col-md-6 p-3">
+      <h4 class="pb-1">Eaten</h4>
+      {{#each burgerData}} {{#if this.devoured}}
+      <div class="bg-light border border-dark rounded m-2 text-left d-flex justify-content-between align-items-center" id={{this.id}}>
+        <span class="mx-2">{{this.burger_name}}</span>
+        <button class="btn btn-sm btn-primary m-1 digest-button" style="width: 110px">DIGEST!</button>
+      </div>
+      {{/if}} {{/each}}
+    </div>
+  </div>
+</div>
